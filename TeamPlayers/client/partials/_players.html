@@ -1,0 +1,28 @@
+<ul>
+  <li><p>Players</p></li>
+  <li><a href="#!/teams">Teams</a></li>
+  <li><a href="#!/assn">Associations</a></li>
+</ul>
+<form ng-submit="addPlayer()">
+  <label>Name:</label>
+  <input type="text" ng-model="newPlayer.name">
+  <label>Age:</label>
+  <input type="text" ng-model="newPlayer.age">
+  <input type="submit" value="Submit">
+</form>
+<table>
+  <tr>
+    <th>id</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th></th>
+  </tr>
+  <tr ng-repeat="player in players">
+    <td>{{ player._id }}</td>
+    <td>
+      <a href="#!/player/{{ player._id }}">{{ player.name }}</a>
+    </td>
+    <td>{{ player.age }}</td>
+    <td><button ng-click="destroy(player._id)">Delete</button></td>
+  </tr>
+</ul>

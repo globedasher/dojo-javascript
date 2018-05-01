@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang='en'ng-app='app'>
+  <head>
+    <meta charset="UTF-8">
+    <title>First Angular Page</title>
+    <script src = '../../bower_components/angular/angular.js'>
+    </script>
+    <script>
+    console.log('In');
+    var app = angular.module('app', []);
+
+    app.controller('divController', ['$scope', function($scope){
+      $scope.myName = 'Richard';
+      $scope.myFavoriteLanguage = 'JavaScript';
+      $scope.myFavoriteModule = 'Express';
+    }]);
+    </script>
+  </head>
+  <body>
+    <div ng-controller='divController'>
+      <p>Hello, world! My name is {{ myName }} and I love {{ myFavoriteLanguage }}. I enjoy using the module {{ myFavoriteModule }}.</p>
+      <p ng-bind='myName'></p>
+      <p ng-bind='myFavoriteLanguage'></p>
+      <p ng-bind='myFavoriteModule'></p>
+    </div>
+  </body>
+</html>

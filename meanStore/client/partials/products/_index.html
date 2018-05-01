@@ -1,0 +1,25 @@
+<h4>Products</h4>
+<ul>
+  <li><a href="#!/index">Home</a></li>
+  <li><a href="#!/products/new">Create a new product</a></li>
+</ul>
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  <tr ng-repeat="product in products">
+    <td>
+      {{ product.name }}
+    </td>
+    <td>
+      <a href="#!/products/{{ product._id }}" ng-click="getProduct(product._id)">Show</a>
+    </td>
+    <td>
+      <a href="#!/products/{{ product._id }}/edit" ng-click="getOneProduct(product._id)">Edit</a>
+    </td>
+    <td>
+      <a href="#" ng-click="deleteProduct(product._id)">Delete Product</a>
+    </td>
+  </tr>
+</table>

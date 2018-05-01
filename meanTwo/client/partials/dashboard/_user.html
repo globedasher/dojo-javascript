@@ -1,0 +1,74 @@
+<p ng-repeat="error in errors">{{ error }}</p>
+
+<div ng-show="localUser.name">
+  <p>Hello, {{ localUser.name }}</p>
+  <button ng-click="logOut()">Logout</button>
+</div>
+
+
+<p ng-model="user">Showing the wishes of {{ user.name }}</p>
+
+<ul>
+  <h4>Pending</h4>
+    <table>
+      <tr>
+        <th></th>
+        <th>User</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Tagged</th>
+        <th>Done</th>
+      </tr>
+      <tr ng-repeat="bucketList in bucketLists" ng-if="bucketList.done === 'false'">
+        <td><input type="checkbox" ng-click="updateList(bucketList._id)"></td>
+        <td>{{ bucketList._user.name }}</td>
+        <td>{{ bucketList.title }}</td>
+        <td>{{ bucketList.description }}</td>
+        <td>{{ bucketList._userB.name }}</td>
+        <td>{{ bucketList.done }}</td>
+      </tr>
+    </table>
+  <h4>Completed</h4>
+    <table>
+      <tr>
+        <th></th>
+        <th>User</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Tagged</th>
+        <th>Done</th>
+      </tr>
+      <tr ng-repeat="bucketList in bucketLists" ng-if="bucketList.done === 'true'">
+        <td><input type="checkbox" ng-click="updateList(bucketList._id)"></td>
+        <td>{{ bucketList._user.name }}</td>
+        <td>{{ bucketList.title }}</td>
+        <td>{{ bucketList.description }}</td>
+        <td>{{ bucketList._userB.name }}</td>
+        <td>{{ bucketList.done }}</td>
+      </tr>
+    </table>
+  <!--li ng-repeat="bucketList in bucketLists" ng-if="(user._id === bucketList._user._id || user._id === bucketList._userB._id) && bucketList.done === 'false'">
+
+    <input type="checkbox" ng-model="bucketList.done" ng-change="updateList(bucketList._id)" ng-show="localUser._id === bucketList._user._id || localUser._id === bucketList._userB._id">
+    Main user: {{ bucketList._user.name }} 
+    | {{ bucketList.title }} 
+    | {{ bucketList.description }}
+    | Tagged: {{ bucketList._userB.name }}
+    | {{ bucketList.done }}
+  </li>
+
+  <h4>Completed</h4>
+  <li ng-repeat="bucketList in bucketLists" ng-if="(user._id === bucketList._user._id || user._id === bucketList._userB._id) && bucketList.done === 'true'">
+
+    <input type="checkbox" ng-model="bucketList.done" ng-change="updateList(bucketList._id)" ng-show="localUser._id === bucketList._user._id || localUser._id === bucketList._userB._id">
+    Main user: {{ bucketList._user.name }} 
+    | {{ bucketList.title }} 
+    | {{ bucketList.description }}
+    | Tagged: {{ bucketList._userB.name }}
+    | {{ bucketList.done }}
+  </li>
+
+</ul-->
+
+
+<a href="#!/dashboard">Home</a>

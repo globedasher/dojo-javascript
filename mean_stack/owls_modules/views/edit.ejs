@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Owls!</title>
+  </head>
+  <body>
+    <!-- The owl[0] in question is pulled from the mongo database. This is an
+      array of objects normally, but since this is a singular query, there is 
+      element in the array.-->
+    <form action='/owls/<%= owl[0]._id %>' method='POST'>
+      <input type='text' name='name' value='<%= owl[0].name %>'> 
+      <input type='number' name='age' value='<%= owl[0].age %>'>
+      <input type='submit' value='Update'>
+    </form>
+  </body>
+</html>

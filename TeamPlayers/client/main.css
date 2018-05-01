@@ -1,0 +1,21 @@
+* {
+  background-color: blue;
+}
+
+body {
+  color: white;
+  font-family: sans-serif;
+}
+
+a {
+  color: white;
+}
+
+table {
+  border: 1px solid white;
+}
+
+#container{
+  margin: 0 auto;
+  width: 600px;
+}

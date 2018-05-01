@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Owls!</title>
+  </head>
+  <body>
+    <ul>
+      <% for(quote in quotes){ %>
+      <li>First Name: <%= quotes[quote].first_name %> Last Name: <%= quotes[quote].last_name %> Quote: <%= quotes[quote].quote %> Created at: <%= quotes[quote].createdAt %></li>
+      <% } %>
+    </ul>
+  </body>
+</html>

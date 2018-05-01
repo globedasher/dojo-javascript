@@ -1,0 +1,65 @@
+(1)
+use my_first_db
+
+(2)
+db.createCollection('students')
+
+(3)
+db.students.insert({name:'Richard', home_state: 'Washington', lucky_number: 0, birthday: {month: 5, day: 3, year: 1933}})
+
+(4)
+db.students.insert({name:'Janet', home_state: 'California', lucky_number: 33, birthday: {month: 8, day: 23, year: 1954}})
+db.students.insert({name:'Rocky', home_state: 'Washnington', lucky_number: 2, birthday: {month: 1, day: 11, year: 1977}})
+db.students.insert({name:'Violet', home_state: 'California', lucky_number: 99, birthday: {month: 5, day: 15, year: 1988}})
+db.students.insert({name:'Brandon', home_state: 'Texas', lucky_number: 86, birthday: {month: 2, day: 27, year: 1992}})
+
+(5)
+db.students.find()
+
+(6)
+db.students.find({$or : [{home_state: 'California'}, {home_state: 'Washington'}]})
+
+(7)
+db.students.find({lucky_number : {$gt : 3 }})
+db.students.find({lucky_number : {$lte : 10 }})
+db.students.find( { $and: [ { lucky_number: {$gte: 1} }, {lucky_number: {$lte: 9 }} ] })
+
+(8)
+db.students.update({},{$set : {hobbies: 'coding', 'brunch', 'mongodb'}}, {multi: true})
+
+
+(9)
+db.students.update({name:'Richard'},{$addToSet : {hobbies : "Computers"}})
+db.students.update({name:'Janet'},{$addToSet : {hobbies : "Racing"}})
+db.students.update({name:'Violet'},{$addToSet : {hobbies : "Running"}})
+db.students.update({name:'Brandon'},{$addToSet : {hobbies : "Biology"}})
+
+(10)
+db.students.update({name:'Brandon'},{$addToSet : { hobbies: "Taxes" }})
+
+(11)
+db.students.update({name:'Brandon'},{$pop: {hobbies: (1)}})
+
+(12)
+db.students.remove({home_state: 'California'})
+
+(13)
+db.students.remove({name:'Brandon'})
+
+(14)
+db.students.remove({}, {$gt { lucky_number: 5 }})
+
+(15)
+db.students.update({},{$set : { number_of_belts: 0 }}, {multi:true})
+
+(16)
+db.students.update({}, {$inc : {number_of_belts: 1}}, {multi: true})
+
+(17)
+db.students.update({}, {$rename : {number_of_belts: 'belts_earned'}}, {multi:true})
+
+(18)
+db.students.update({},{$unset : { lucky_number : ''}}, {multi:true})
+
+(19)
+db.students.update({},{$set : { updated_on: Date() }}, {multi: true})

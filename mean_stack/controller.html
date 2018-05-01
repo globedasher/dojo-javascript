@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app='app'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Build a Controller</title>
+    <script src='./bower_components/angular/angular.js'></script>
+    <script type='text/javascript'>
+      var myAppModule = angular.module('app', []);
+      myAppModule.controller('myController', function($scope){
+        $scope.foods = [];
+        $scope.bit = true;
+        $scope.addFood = function(){
+          $scope.foods.push($scope.newFood.food);
+          // flip flop!
+          if($scope.bit === false){
+            $scope.bit = true;
+          }else{
+            $scope.bit = false;
+          }
+          $scope.newFood = {};
+        };
+      });
+    </script>
+  </head>
+  <body>
+    <div ng-controller='myController'>
+      <input type='text' ng-model='filterText' placeholder='search foods'>
+      <ul>
+        <li ng-repeat='food in foods | filter:filterText'>{{ food }}</li>
+      </ul>
+      <h1 ng-show='bit'>show</h1>
+      <form ng-submit='addFood()'>
+        <input type='text' ng-model='newFood.food'>
+        <input type='submit' value='add food'>
+      </form>
+      <h1 ng-hide='bit'>hide</h1>
+      <form>
+        <input type='text' ng-model='newFood.food'>
+        <input type='submit' value='add food' ng-click='addFood()'>
+      </form>
+      <p ng-if='newFood.food'>You are typing... {{ newFood.food }}</p>
+    </div>
+  </body>
+</html>

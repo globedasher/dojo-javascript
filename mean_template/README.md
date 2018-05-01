@@ -1,0 +1,1 @@
+This template is used as a simple starting point for a MEAN application as I learned it through Coding Dojo. This includes a back end that uses Node.js, Express.js and MongoDB. The front end uses AngularJS. The asynchronous nature of this stack was compelling to me, and I find it fun to work with and contemplate. 

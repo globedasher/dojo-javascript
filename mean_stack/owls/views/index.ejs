@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Owls!</title>
+  </head>
+  <body>
+    <ul>
+      <% for(owl in owls){ %>
+      <li>Name: <a href='/owls/<%=owls[owl]._id%>' > <%= owls[owl].name %></a> Age: <%= owls[owl].age %></li>
+      <% } %>
+    </ul>
+    <a href='/owls/new'>Create a new Owl...</a>
+    <form action='/owls/destroy' method='POST'>
+      <input type='submit' value='Delete All'>
+    </form>
+  </body>
+</html>

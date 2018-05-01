@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app='myApp'> <!-- ng-app directive added to html element -->
+  <head>
+    <meta charset='utf-8'>
+    <title>Angular</title>
+    <script src='../../bower_components/angular/angular.js'></script>
+    <script type='text/javascript'>
+      console.log('In!');
+      var myAppModule = angular.module('myApp', []);
+      myAppModule.controller('studentsController', function(){
+
+        this.students = [
+          {name: "Mike", age: 22}, 
+          {name: "John", age: 34}, 
+          {name: "Trey", age: 3}, 
+          {name:"India", age: 64},
+        ];
+
+        this.addStudent = function(){
+          // add to the array
+          console.log(this.students);
+          this.students.push(this.newStudent);
+          // clear the form
+          this.newStudent = {};
+        }
+
+      });
+
+    </script>
+  </head>
+  <body>
+    <div ng-controller='studentsController as studentsCtrl'>
+      <ul>
+        <li ng-repeat='student in studentsCtrl.students'>Name: {{ student.name }} Age: {{ student.age }}</li>
+      </ul>
+      <form>
+        Name: <input type='text' ng-model='studentsCtrl.newStudent.name'>
+        Age: <input type='text' ng-model='studentsCtrl.newStudent.age'>
+        <input type='submit' value='add a new student' ng-click='studentsCtrl.addStudent()'>
+      </form>
+    </div>
+  </body>
+</html>

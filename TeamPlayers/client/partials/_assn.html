@@ -1,0 +1,16 @@
+<ul>
+  <li><a href="#!/players">Players</a></li>
+  <li><a href="#!/teams">Teams</a></li>
+  <li><p>Associations</p></li>
+</ul>
+<form ng-submit="addAssn(player._id, team._id)">
+  <select>
+    <option>Select Player</option>
+    <option ng-repeat="player in players" value="{{ player._id }}">{{ player.name }}</option>
+  </select>
+  <select>
+    <option>Select Team</option>
+    <option ng-repeat="team in teams" value="{{ team._id }}">{{ team.name }}</option>
+  </select>
+  <input type="submit" value="Add Association">
+</form>

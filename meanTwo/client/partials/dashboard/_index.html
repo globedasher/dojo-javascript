@@ -1,0 +1,87 @@
+<p ng-repeat="error in errors">{{ error }}</p>
+
+<div ng-show="localUser.name">
+  <p>Hello, {{ localUser.name }}</p>
+  <button ng-click="logOut()">Logout</button>
+  Id: {{ localUser._id }}
+</div>
+
+
+<div class="bordered">
+    <form ng-submit="addBucketList(localUser._id)">
+    <label>
+        Title
+        <input type="text" ng-model="newBucketList.title">
+    </label>
+    
+
+    <label>
+        Description
+        <textarea ng-model="newBucketList.description"></textarea>
+    </label>
+
+    <label>
+        Tag User
+        <select ng-model="newBucketList._userB">
+        <option ng-repeat="user in users" value="{{user._id}}">{{ user.name }}</option>
+        </select>
+    </label>
+
+    <input type="submit" value="Add Item to Bucket List">
+
+    </form>
+</div>
+
+<div class="">
+    <p ng-model="bucketLists">{{ bucketLists.length }} length of bucketLists</p>
+
+    <h3>Before I die, I want to...</h3>
+
+    <h4>Pending</h4>
+      <table>
+        <tr>
+          <th></th>
+          <th>User</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Tagged</th>
+          <th>Done</th>
+        </tr>
+        <tr ng-repeat="bucketList in bucketLists | filter: { done: false }">
+          <td><input type="checkbox" ng-model="bucketList.done" ng-change="updateList(bucketList)"></td>
+          <td>{{ bucketList._user.name }}</td>
+          <td>{{ bucketList.title }}</td>
+          <td>{{ bucketList.description }}</td>
+          <td>{{ bucketList._userB.name }}</td>
+          <td>{{ bucketList.done }}</td>
+        </tr>
+      </table>
+
+
+    <h4>Completed</h4>
+      <table>
+        <tr>
+          <th></th>
+          <th>User</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Tagged</th>
+          <th>Done</th>
+        </tr>
+        <tr ng-repeat="bucketList in bucketLists | filter: { done: true }">
+          <td><input type="checkbox" ng-model="bucketList.done" ng-change="updateList(bucketList)"></td>
+          <td>{{ bucketList._user.name }}</td>
+          <td>{{ bucketList.title }}</td>
+          <td>{{ bucketList.description }}</td>
+          <td>{{ bucketList._userB.name }}</td>
+          <td>{{ bucketList.done }}</td>
+        </tr>
+      </table>
+
+</div>
+
+<h4>List of users bucket lists (click to view profiles):</h4>
+<ul>
+  <li ng-repeat="user in users"><a href="#!/user/{{ user._id }}">  {{ user.name }}</a></li>
+</ul>
+

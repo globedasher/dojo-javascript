@@ -1,0 +1,41 @@
+<p ng-repeat="error in errors">{{ error }}</p>
+
+<div ng-if="user.name">
+  <h4>Hello, {{ user.name }}</h4>
+
+  <button ng-click="logOut()">Logout</button>
+</div>
+
+<a href="#!/appointments/new" ng-show="user.name">Create a new appointment</a>
+
+<div ng-hide="user.name">
+  <form ng-submit="addUser()" ng-hide="user.name">
+    <input type="text" ng-model="newUser.name" placeholder="Login or Register">
+    <input type="submit" value="Add User">
+  </form>
+</div>
+
+<input type="text" ng-model="searchText" placeholder="Search">
+<table>
+  <tr>
+    <th>Appointment Date</th>
+    <th>Time</th>
+    <th>Patient Name</th>
+    <th>Complaint</th>
+  </tr>
+  <tr ng-repeat="appointment in appointments | filter: searchText | orderBy: 'time' | orderBy: 'date' ">
+    <td>
+      {{ appointment.date | date }}
+    </td>
+    <td>
+      {{ appointment.time }}
+    </td>
+    <td>
+      {{ appointment._user.name }}
+    </td>
+    <td>
+      {{ appointment.complaint }}
+      <button ng-show="user.name === appointment._user.name" ng-click="deleteAppointment(appointment._id)">Delete</button>
+    </td>
+  </tr>
+</table>

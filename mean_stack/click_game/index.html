@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Click the button to start the timer</h1>
+    <button id='timer_button'>Start Timer</button>
+    <button id='mash_button'>Mash Me!</button>
+    <p id='results'></p>
+    <button id='reset_button'>Reset</button>
+
+
+    <script type='text/javascript'>
+      console.log('Hello, Game!')
+
+      var mash = document.getElementById('mash_button');
+      mash.hidden = true;
+
+      var results = document.getElementById('results');
+
+      var reset = document.getElementById('reset_button');
+      reset.hidden = true;
+
+      reset.onclick = (function(){
+        results.innerHTML = '';
+        reset.hidden = true;
+        start.hidden = false;
+      })
+
+      var start = document.getElementById('timer_button');
+      start.addEventListener('click', startTimer);
+      
+      function startTimer(){
+        console.log('click');
+        // DONE: Get a random preset for the timer.
+        var timer_preset = Math.ceil(Math.random() *5);
+        console.log(timer_preset);
+
+        // WHILE the timer is running:
+        //   DONE: Hide the start button.
+        //   DONE: Present the MASH buttton.
+        //   DONE: Count the numer of times the MASH button is pressed.
+
+        var count = 0;
+        // Multiply the timer_preset by 1000 as the setTimeout works in 
+        // milliseconds.
+        setTimeout(function(){
+          mash.hidden = true;
+          results.innerHTML = `You clicked the button ${count} times in ${timer_preset} seconds`;
+          reset.hidden = false;
+          console.log(count);
+        }, timer_preset * 1000);
+        start.hidden  = true;
+        mash.hidden  = false;
+        mash.onclick = (function(){
+          count++;
+        })
+
+        // When timer is complete:
+        //   DONE: Hide MASH button.
+        //   DONE: Display count result in HTML.
+        //   DONE: Move reset button so errant clicks do not restart the game.
+        //   DONE: Display reset button.
+      }
+    </script>
+  </body>
+</html>

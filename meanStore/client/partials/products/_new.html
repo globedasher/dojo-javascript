@@ -1,0 +1,19 @@
+<form name="productForm" ng-submit="addProduct()">
+  <h3>Add a new product.</h3>
+  Name: <input type="text" name="name" ng-model="product.name" ng-minlength="2" required>
+  Description: <input type="text" name="description" ng-model="product.description" ng-minlength="2" required>
+  <input type="submit" value="Add Product">
+</form>
+<a href="#!/products">Return to Products Home</a>
+<div ng-messages="productForm.firstName.$error">
+  <p ng-message="minlength">The first name is too short</p>
+  <p ng-message="required">The first name is required</p>
+</div>
+<div ng-messages="productForm.lastName.$error">
+  <p ng-message="minlength">The last name is too short</p>
+  <p ng-message="required">The last name is required</p>
+</div>
+<div ng-messages="productForm.email.$error">
+  <p ng-message="minlength">The email address is too short</p>
+  <p ng-message="required">The email address is required</p>
+</div>

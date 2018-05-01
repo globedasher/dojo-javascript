@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app='app'>
+  <head>
+    <title>Title!</title>
+    <script src='angular/angular.js'></script>
+    <script src='angular-route/angular-route.js'></script>
+    <script>
+    var app = angular.module('app', ['ngRoute']);
+    app.config(function($routeProvider){
+      $routeProvider
+        .when('/', {
+          templateUrl: 'partials/customizeUsers.html',
+          controller: 'UsersController',
+        })
+        .when('/partial2', {
+          templateUrl: 'partials/userList.html',
+          controller: 'ListsController',
+        })
+        .otherwise({
+          redirectTo:'/'
+        });
+    });
+    app.controller('UsersController', function($scope, $location){
+      $scope.list = [];
+      $scope.addUser = function(){
+        $scope.list.push($scope.newUser);
+        $scope.newUser = {};
+        $location.url('/partial2');
+      }
+    });
+    app.controller('ListsController', function($scope, $location){
+    });
+    </script>
+  </head>
+  <body>
+    <div ng-controller='UsersController'>
+      <div ng-view></div>
+    </div>
+    <h1>Hello</h1>
+  </body>
+  <a href='#!/'>Create Users</a>
+  <a href='#!/partial2'>Users List</a>
+</html>

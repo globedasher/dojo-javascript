@@ -1,0 +1,24 @@
+<h4>Users</h4>
+<ul>
+  <li><a href="#!/index">Home</a></li>
+  <li><a href="#!/users/new">Create a new user</a></li> 
+</ul>
+<table>
+  <tr>
+    <th>User Name</th>
+  </tr>
+  <tr ng-repeat="user in users">
+    <td>
+      {{ user.name.first }} {{ user.name.last }}
+    </td>
+    <td>
+      <a href="#!/users/{{ user._id }}" ng-click="getUser(user._id)">Show</a>
+    </td>
+    <td>
+      <a href="#!/users/{{ user._id }}/edit" ng-click="getOneUser(user._id)">Edit</a>
+    </td>
+    <td>
+      <a href="#" ng-click="deleteUser(user._id)">Delete</a>
+    </td>
+  </tr>
+</table>

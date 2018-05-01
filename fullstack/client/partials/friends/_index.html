@@ -1,0 +1,25 @@
+<h4>Friends</h4>
+<ul>
+  <li><a href="#!/index">Home</a></li>
+  <li><a href="#!/friends/new">Create a new friend</a></li>
+</ul>
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  <tr ng-repeat="friend in friends">
+    <td>
+      {{ friend.name.first }} {{ friend.name.last }}
+    </td>
+    <td>
+      <a href="#!/friends/{{ friend._id }}" ng-click="getFriend(friend._id)">Show</a>
+    </td>
+    <td>
+      <a href="#!/friends/{{ friend._id }}/edit" ng-click="getOneFriend(friend._id)">Edit</a>
+    </td>
+    <td>
+      <a href="#" ng-click="deleteFriend(friend._id)">Delete User</a>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,35 @@
+<p ng-repeat="error in errors">{{ error }}</p>
+
+<div ng-show="localUser.name">
+  <p>Hello, {{ localUser.name }}</p>
+  <button ng-click="logOut()">Logout</button>
+</div>
+
+<form ng-submit="addItem(localUser._id)">
+  <label>
+    Title
+    <input type="text" ng-model="newItem.title">
+  </label>
+  <label>
+    Description
+    <textarea ng-model="newItem.description"></textarea>
+  </label>
+  <input type="submit" value="Add Item to List">
+
+</form>
+
+<p ng-model="items">{{ items.length }} length of items</p>
+
+<h3>Items I own</h3>
+<ul>
+  <li ng-repeat="item in items" ng-if="localUser._id === item._user._id">
+
+    Main user: {{ item._user.name }} 
+    | {{ item.title }} 
+    | {{ item.description }}
+    | Tagged: {{ item._userB.name }} 
+    | {{ item.done }}
+
+  </li>
+</ul>
+{{ items }}

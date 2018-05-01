@@ -1,0 +1,112 @@
+body {
+  background-color: grey;
+  color: black;
+  font-family: sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.bordered {
+    border: 1px solid black;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+a {
+  color: purple;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  text-align: left;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: grey;
+  color: black;
+  padding: 8px 20px;
+  margin: 6px 0;
+  box-sizing: border-box;
+}
+
+input[type=text]{
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: grey;
+  color: black;
+  padding: 8px 20px;
+  margin: 6px 0;
+  box-sizing: border-box;
+}
+
+input[type=text]:focus{
+  border: 1px solid blue;
+}
+
+input[type=time]{
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: grey;
+  color: black;
+  padding: 8px 20px;
+  margin: 6px 0;
+  box-sizing: border-box;
+}
+
+input[type=time]:focus{
+  border: 1px solid blue;
+}
+
+input[type=submit]{
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: grey;
+  color: black;
+  padding: 8px 20px;
+  margin: 6px 0;
+  box-sizing: border-box;
+}
+
+button{
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: grey;
+  color: black;
+  padding: 8px 20px;
+  margin: 6px 0;
+  box-sizing: border-box;
+}
+
+select, option{
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color: grey;
+  color: black;
+  padding: 8px 20px;
+  margin: 6px 0;
+  box-sizing: border-box;
+}
+
+.widgetSpace { 
+  width: 400px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+#container {
+  margin: 0 auto;
+  width: 1000px;
+}

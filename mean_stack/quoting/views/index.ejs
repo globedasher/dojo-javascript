@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Quotes!</title>
+  </head>
+  <body> 
+    <% if (typeof (errors) != 'undefined') { %>
+      <% for (var x in errors) { %>
+        <h3><%= errors[x].message %></h3>
+      <% } %>
+    <% } %>
+    <form action='/quotes' method='POST'>
+      <input type='text' name='first_name' placeholder="First Name">
+      <input type='text' name='last_name' placeholder="Last Name">
+      <textarea name='quote' rows='10' cols='20' placeholder='Enter your quote here!'></textarea>
+      <input type='submit' value='Add quote'>
+    </form>
+
+
+    <form action='/quotes' method='GET'>
+      <input type='submit' value='Skip to Quotes!'>
+    </form>
+  </body>
+</html>

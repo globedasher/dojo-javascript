@@ -1,0 +1,20 @@
+<form name="friendForm" ng-submit="addFriend()">
+  <h3>Add a new friend.</h3>
+  First Name: <input type="text" name="firstName" ng-model="friend.name.first" ng-minlength="2" required>
+  Last Name: <input type="text" name="lastName" ng-model="friend.name.last" ng-minlength="2" required>
+  Email: <input type="text" name="email" ng-model="friend.email" ng-minlength="5" required>
+  <input type="submit" value="Add Friend">
+</form>
+<a href="#!/friends">Return to Friends Home</a>
+<div ng-messages="friendForm.firstName.$error">
+  <p ng-message="minlength">The first name is too short</p>
+  <p ng-message="required">The first name is required</p>
+</div>
+<div ng-messages="friendForm.lastName.$error">
+  <p ng-message="minlength">The last name is too short</p>
+  <p ng-message="required">The last name is required</p>
+</div>
+<div ng-messages="friendForm.email.$error">
+  <p ng-message="minlength">The email address is too short</p>
+  <p ng-message="required">The email address is required</p>
+</div>

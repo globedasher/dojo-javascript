@@ -1,0 +1,43 @@
+<h4>Topic</h4>
+
+
+<table>
+  <tr>
+    <th>Topic Name</th>
+  </tr>
+  <tr>
+    <td>
+      {{ editTopic.text }}
+    </td>
+    <td>
+      {{ editTopic.description }}
+    </td>
+    <td>
+      {{ editTopic._user.name.first }} {{ editTopic._user.name.last }} 
+    </td>
+    <td>
+      {{ editTopic.createdAt | date }}
+    </td>
+    <td>
+      <a href="#!/editTopics/{{ editTopic._id }}" ng-click="getTopic(editTopic._id)">Show</a>
+    </td>
+    <td>
+      <a href="#!/topics/{{ editTopic._id }}/edit" ng-click="getOneTopic(editTopic._id)">Edit</a>
+    </td>
+  </tr>
+</table>
+
+
+<form ng-submit="addPost()">
+
+  <input type="text" ng-model="newPost.text">
+
+  <input type="submit" value="Submit Comment">
+
+</form>
+
+
+<ul>
+  <li><a href="#!/index">Home</a></li>
+</ul>
+

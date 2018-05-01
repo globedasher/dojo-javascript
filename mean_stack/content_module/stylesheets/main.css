@@ -1,0 +1,18 @@
+/* My css file!
+ */
+
+* {
+  font-family: sans-serif;
+}
+
+body {
+  background-color: blue;
+  color: white;
+}
+
+
+  #container {
+    margin: 0 auto;
+    width: 1000px;
+  }
+

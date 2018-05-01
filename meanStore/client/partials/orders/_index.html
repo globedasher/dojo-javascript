@@ -1,0 +1,49 @@
+<h4>Orders</h4>
+
+<ul>
+  <li><a href="#!/index">Home</a></li>
+</ul>
+
+<form ng-submit="addOrder()">
+
+  <select ng-model="newOrder._customer">
+    <option value="">Select Customer</option>
+    <option ng-repeat="customer in customers" value="{{ customer._id }}">{{customer.name.first }} {{ customer.name.last }}</option>
+  </select>
+
+  <select ng-model="newOrder.product">
+    <option value="">Select Product</option>
+    <option ng-repeat="product in products" value="{{ product._id }}">{{product.name }} {{ product.description }}</option>
+  </select>
+
+
+  <input type="submit" value="Submit Order">
+
+</form>
+
+<table>
+  <tr>
+    <th>Order Name</th>
+    <th>Products</th>
+    <th>Created At</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr ng-repeat="order in orders track by $index">
+    <td>
+      {{ order._customer.name.first }} {{ order._customer.name.last }} 
+    </td>
+    <td>
+      {{ order.product.name }}
+    </td>
+    <td>
+      {{ order.createdAt | date }}
+    </td>
+    <td>
+      <a href="#!/orders/{{ order._id }}" ng-click="getOrder(order._id)">Show</a>
+    </td>
+    <td>
+      <a href="#!/orders/{{ order._id }}/edit" ng-click="getOneOrder(order._id)">Edit</a>
+    </td>
+  </tr>
+</table>

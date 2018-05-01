@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Express Test</title>
+  </head>
+  <body>
+    <div id='container'>
+      <form action='/result' method='post'>
+        <label>Your Name:</label>
+        <input type='text' name='name'>
+        <label>Dojo Location:</label>
+        <select name='location'>
+          <option>Choose a location</option>
+          <option value='Seattle'>Seattle</option>
+        </select>
+        <label>Favorite Language:</label>
+        <select name='language'>
+          <option>Choose a language</option>
+          <option value='JavaScript'>JavaScript</option>
+        </select>
+        <label>Comment (optional):</label>
+        <textarea name='comment' cols=40 rows=10></textarea>
+        <input type='submit' value='Submit'>
+      </form>
+    </div>
+  </body>
+</html>
+

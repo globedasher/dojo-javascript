@@ -1,0 +1,26 @@
+<h3>Update user</h3>
+<form name="userForm" ng-submit="updateUser(user._id)">
+  <div ng-if="userForm.firstName.$error" ng-messages="userForm.firstName.$error">
+    <p ng-message="minlength">The first name is too short</p>
+    <p ng-message="required">The first name is required</p>
+  </div>
+  First Name: <input type="text" name="firstName" ng-model="editUser.name.first" ng-minlength="2" required>
+  
+  <div ng-if="userForm.lastName.$error" ng-messages="userForm.lastName.$error">
+    <p ng-message="minlength">The first name is too short</p>
+    <p ng-message="required">The first name is required</p>
+  </div>
+  Last Name: <input type="text" name="lastName" ng-model="editUser.name.last" ng-minlength="2" required>
+
+  <div ng-if="userForm.email.$error" ng-messages="userForm.email.$error">
+    <p ng-message="minlength">The first name is too short</p>
+    <p ng-message="required">The first name is required</p>
+  </div>
+  Email: <input type="text" name="email" ng-model="editUser.email" ng-minlength="5" required>
+  <input type="submit" value="Update User">
+</form>
+<p>Id: {{ user._id }}</p>
+<p>Name: {{ user.name.first }} {{ user.name.last }}</p>
+<p>Eamil: {{ user.email }}</p>
+<p>Created at: {{ user.createdAt }}</p>
+<a href="#!/users/">Home</a>

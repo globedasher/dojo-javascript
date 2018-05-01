@@ -1,0 +1,26 @@
+<h3>Update customer</h3>
+<form name="customerForm" ng-submit="updateCustomer(customer._id)">
+  <div ng-if="customerForm.firstName.$error" ng-messages="customerForm.firstName.$error">
+    <p ng-message="minlength">The first name is too short</p>
+    <p ng-message="required">The first name is required</p>
+  </div>
+  First Name: <input type="text" name="firstName" ng-model="editCustomer.name.first" ng-minlength="2" required>
+  
+  <div ng-if="customerForm.lastName.$error" ng-messages="customerForm.lastName.$error">
+    <p ng-message="minlength">The first name is too short</p>
+    <p ng-message="required">The first name is required</p>
+  </div>
+  Last Name: <input type="text" name="lastName" ng-model="editCustomer.name.last" ng-minlength="2" required>
+
+  <div ng-if="customerForm.email.$error" ng-messages="customerForm.email.$error">
+    <p ng-message="minlength">The first name is too short</p>
+    <p ng-message="required">The first name is required</p>
+  </div>
+  Email: <input type="text" name="email" ng-model="editCustomer.email" ng-minlength="5" required>
+  <input type="submit" value="Update Customer">
+</form>
+<p>Id: {{ customer._id }}</p>
+<p>Name: {{ customer.name.first }} {{ customer.name.last }}</p>
+<p>Eamil: {{ customer.email }}</p>
+<p>Created at: {{ customer.createdAt }}</p>
+<a href="#!/customers/">Home</a>

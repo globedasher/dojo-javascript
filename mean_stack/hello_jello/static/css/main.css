@@ -1,0 +1,14 @@
+body {
+  background-color: blue;
+  color: white;
+  font-family: sans-serif;
+}
+
+a {
+  color: white;
+}
+
+#container {
+  margin: 0 auto;
+  width: 1000px;
+}

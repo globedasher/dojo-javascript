@@ -1,0 +1,29 @@
+<form name="userForm" ng-submit="addUser()">
+  <h3>Please register your user</h3>
+  Name: <input type="text" name="name" ng-model="user.name" ng-minlength="2" required>
+  <input type="submit" value="Add User">
+</form>
+<div ng-messages="userForm.name.$error">
+  <p ng-message="minlength">The name is too short</p>
+  <p ng-message="required">The name is required</p>
+</div>
+
+<h4>Users</h4>
+<table>
+  <tr>
+    <th>User Name</th>
+    <th></th>
+  </tr>
+  <tr ng-repeat="user in users">
+    <td>
+      <a href="#!/users/{{ user._id }}" ng-click="getUser(user._id)">{{ user.name }}</a>
+    </td>
+    <td>
+      <a href="#" ng-click="deleteUser(user._id)">Delete</a>
+    </td>
+  </tr>
+</table>
+
+<ul>
+  <li><a href="#!/index">Home</a></li>
+</ul>

@@ -1,0 +1,22 @@
+<h3>Update product</h3>
+<form name="productForm" ng-submit="updateProduct(product._id)">
+  Name: <input type="text" name="name" ng-model="editProduct.name" ng-minlength="2" required>
+  Description: <input type="text" name="description" ng-model="editProduct.description" ng-minlength="2" required>
+  <input type="submit" value="Update Product">
+</form>
+<p>Id: {{ product._id }}</p>
+<p>Name: {{ product.name }}</p>
+<p>Created at: {{ product.createdAt }}</p>
+<a href="#!/products/">Home</a>
+<div ng-messages="productForm.firstName.$error">
+  <p ng-message="minlength">The first name is too short</p>
+  <p ng-message="required">The first name is required</p>
+</div>
+<div ng-messages="productForm.lastName.$error">
+  <p ng-message="minlength">The last name is too short</p>
+  <p ng-message="required">The last name is required</p>
+</div>
+<div ng-messages="productForm.email.$error">
+  <p ng-message="minlength">The email address is too short</p>
+  <p ng-message="required">The email address is required</p>
+</div>

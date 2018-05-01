@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Button Fun</title>
+  </head>
+  <body>
+    <p>Button Fun</p>
+    <input type='submit' id='this_button' value="Click this!">
+  </body>
+  <script>
+    console.log('Button Fun!');
+    var this_button = document.getElementById('this_button');
+    var current_color = 'blue';
+    this_button.style.backgroundColor = current_color;
+    this_button.style.color = 'white';
+
+    console.dir(this_button);
+
+    this_button.onclick = function(){
+      if(current_color === 'blue'){
+        current_color = 'red';
+      }else if(current_color === 'red'){
+        current_color = 'blue';
+      }
+    }
+    
+    this_button.onmouseenter = function(){
+      current_color = this_button.style.backgroundColor;
+      this_button.style.backgroundColor = 'green';
+    }
+
+    this_button.onmouseleave = function(){
+      this_button.style.backgroundColor = current_color;
+    }
+
+  </script>
+</html>

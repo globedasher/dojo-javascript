@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GitHub Hunt</title>
+  </head>
+  <body>
+    <input type='submit' id='this_button' value='GitHub Hunt!'>
+    <div id='display'></div>
+  </body>
+  <script type='text/javascript' src='./bower_components/jquery/dist/jquery.js'></script>
+  <script>
+    $(document).ready(function(){
+      console.log('jQuery running');
+
+      $('#this_button').on('click', function(){
+        $.get('https://api.github.com/users/globedasher', displayName);
+      })
+
+      function displayName(data) {
+        console.log(data);
+        $('#display').html(`<ul><li>${data.name}</li><li>${data.login}</li></ul>`);
+      }
+
+    })
+  </script>
+</html>

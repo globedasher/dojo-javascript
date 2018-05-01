@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>posts!</title>
+  </head>
+  <body>
+    <h2>Dojo Message Board!</h2>
+    <% if(typeof (post_errors) != 'undefined'){ %>
+      <% for(var x in post_errors){ %>
+        <%= post_errors[x].message %>
+      <% } %>
+    <% } %>
+    <form action='/post' method='POST'>
+      <input type='text' name='firstName' placeholder='Name'>
+      <textarea name='text' rows='10' cols='30' placeholder='Message'></textarea>
+      <input type='submit' value='Post Message'>
+    </form>
+    <% if(typeof (posts) != 'undefined'){ %>
+      <ul>
+        <% for(post in posts){ %>
+          <li>Message: <%= posts[post].text %> Name: <%= posts[post].firstName %> </li>
+
+          <% if(typeof (posts[post].comments) != 'undefined'){ %>
+            <ul>
+              <% for(var x = 0; x < posts[post].comments.length; x++){ %>
+              <li>
+                Comment: <%= posts[post].comments[x].text %> Name: <%= posts[post].comments[x].firstName %>
+              </li>
+            <% } %>
+            </ul>
+          <% } %>
+
+          <% if(typeof (comment_errors) != 'undefined'){ %>
+            <% for(var x in comment_errors){ %>
+              <%= comment_errors[x].message %>
+            <% } %>
+          <% } %>
+
+          <form action='/post/<%=posts[post]._id%>' method='POST'>
+            <input type='text' name='firstName' placeholder='Name'>
+            <textarea name='text' rows='10' cols='30' placeholder='Comment'></textarea>
+            <input type='submit' value='Comment'>
+          </form>
+        <% } %>
+      </ul>
+    <% } %>
+    <form action='/destroy' method='POST'>
+      <input type='submit' value='Delete All'>
+    </form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Button Fun</title>
+  </head>
+  <body>
+    <p>Button Fun</p>
+    <input type='submit' id='this_button' value="Click this!">
+  </body>
+  <script type='text/javascript' src='../bower_components/jquery/dist/jquery.js'></script>
+  <script>
+    $(document).ready(function(){
+      console.log('jQuery running');
+      var this_button = $('#this_button');
+      console.dir(this_button);
+
+      
+      $('#this_button').css('background-color', 'blue');
+
+      // This variable will store the current red or blue background color of 
+      // button .onmouseenter
+      var current_color;
+
+      $('#this_button').mouseenter(function(){
+        console.log('mouse enter');
+        current_color = $('#this_button').css('backgroundColor');
+        $('#this_button').css('backgroundColor', 'green');
+      })
+
+      $('#this_button').mouseleave(function(){
+        console.log('mouse leave');
+        $('#this_button').css('backgroundColor', current_color);
+      })
+
+
+      $(document).on('click', '#this_button', function(){
+        console.log('click');
+        if(current_color === 'rgb(255, 0, 0)'){
+          console.log('if');
+          current_color = 'rgb(0, 0, 255)'
+        }else if(current_color === 'rgb(0, 0, 255)'){
+          console.log('else if');
+          current_color = 'rgb(255, 0, 0)'
+        }
+      })
+
+
+
+    });
+  </script>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <title>Discussion Page</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="/angular/angular.js"></script>
+    <script src="/angular-route/angular-route.js"></script>
+    <script src="/angular-messages/angular-messages.js"></script>
+    <script src="/angular-cookies/angular-cookies.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script src="assets/js/factories/comments/factory.js"></script>
+    <script src="assets/js/factories/topics/factory.js"></script>
+    <script src="assets/js/factories/users/factory.js"></script>
+    <script src="assets/js/factories/posts/factory.js"></script>
+
+    <script src="assets/js/controllers/comments/ctrl.js"></script>
+    <script src="assets/js/controllers/comments/editCtrl.js"></script>
+    <script src="assets/js/controllers/topics/ctrl.js"></script>
+    <script src="assets/js/controllers/topics/editCtrl.js"></script>
+    <script src="assets/js/controllers/users/ctrl.js"></script>
+    <script src="assets/js/controllers/users/editCtrl.js"></script>
+    <script src="assets/js/controllers/posts/ctrl.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div ng-view></div>
+    </div>
+  </body>
+</html>

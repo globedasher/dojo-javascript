@@ -1,0 +1,24 @@
+<h3>Update friend</h3>
+<form name="friendForm" ng-submit="updateFriend(friend._id)">
+  First Name: <input type="text" name="firstName" ng-model="editFriend.name.first" ng-minlength="2" required>
+  Last Name: <input type="text" name="lastName" ng-model="editFriend.name.last" ng-minlength="2" required>
+  Email: <input type="text" name="email" ng-model="editFriend.email" ng-minlength="5" required>
+  <input type="submit" value="Update Friend">
+</form>
+<p>Id: {{ friend._id }}</p>
+<p>Name: {{ friend.name.first }} {{ friend.name.last }}</p>
+<p>Eamil: {{ friend.email }}</p>
+<p>Created at: {{ friend.createdAt }}</p>
+<a href="#!/friends/">Home</a>
+<div ng-messages="friendForm.firstName.$error">
+  <p ng-message="minlength">The first name is too short</p>
+  <p ng-message="required">The first name is required</p>
+</div>
+<div ng-messages="friendForm.lastName.$error">
+  <p ng-message="minlength">The last name is too short</p>
+  <p ng-message="required">The last name is required</p>
+</div>
+<div ng-messages="friendForm.email.$error">
+  <p ng-message="minlength">The email address is too short</p>
+  <p ng-message="required">The email address is required</p>
+</div>

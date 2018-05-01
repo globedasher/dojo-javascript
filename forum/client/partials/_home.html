@@ -1,0 +1,68 @@
+<h4 ng-if="user">Hello, {{ user.name }}</h4>
+
+<h4>Homepage</h4>
+
+<ul>
+  <li><a href="#!/users/new">Users</a></li>
+</ul>
+
+<div class="widgetSpace">
+  <form name="topicForm" ng-submit="addTopic()">
+    <h3>Add a new topic.</h3>
+    Topic: <input type="text" name="text" ng-model="newTopic.text" ng-minlength="2" required>
+    Description: <input type="text" name="text" ng-model="newTopic.description" ng-minlength="2" required>
+    Category:
+    <select ng-model="newTopic.category">
+      <option>Please select a category</option>
+      <option value="Front End">Front End</option>
+      <option value="Back End">Back End</option>
+      <option value="Python">Python</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="MEAN Stack">MEAN Stack</option>
+      <option value="Django Stack">Django Stack</option>
+    </select>
+    <input type="submit" value="Add Topic">
+  </form>
+  <div ng-messages="topicForm.text.$error">
+    <p ng-message="minlength">The text is too short</p>
+    <p ng-message="required">The text is required</p>
+  </div>
+</div>
+
+<div class="widgetSpace">
+  <h4>Topics</h4>
+  <div ng-hide="topics">
+    <p>No topics</p>
+  </div>
+  <div ng-show="topics" class="ng-show">
+    <table>
+      <tr>
+        <th>Category</th>
+        <th>Topic</th>
+        <th>UserName</th>
+        <th>Posted</th>
+      </tr>
+      <tr ng-repeat="topic in topics">
+        <td>
+          {{ topic.category }}
+        </td>
+        <td>
+          <a href="#!/topics/{{ topic._id }}">{{ topic.text }}</a>
+        </td>
+        <td>
+          {{ topic._user.name }}
+        </td>
+        <td>
+          {{ topic.createdAt | date }}
+        </td>
+        <!--td>
+          {{ topic }}
+        </td-->
+        <td>
+          {{ topic._comments.length }}
+        </td>
+      </tr>
+    <table>
+  </div>
+</div>
+
